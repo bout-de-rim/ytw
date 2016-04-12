@@ -57,3 +57,20 @@ function formatTime(time){
 
 	return minutes + ":" + seconds;
 }
+
+function Annotation(start, end, content){
+	this.start = start; 
+	this.end = end; 
+	this.content = content; 
+	this.html = function () {
+		return "<div class='annotation'>\
+		<span class='start'>"+this.start+"</span>\
+		<span class='end'>"+this.end+"</span>\
+		<span class='content'>"+this.content+"</span>\
+		</div>"; 
+	}
+}
+
+test_annot = new Annotation(0.0,5.0,"test"); 
+test_annot.html(); 
+$('#annot-list').html(test_annot.html()); 
