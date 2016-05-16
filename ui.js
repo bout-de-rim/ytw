@@ -111,7 +111,7 @@ var annotationsui = {
         editor: "text",
         header: "Duration"
             }],
-    data: testvalues,
+//    data: testvalues,
     autowidth: true,
     on: {
         onAfterSelect: function (id) {
@@ -121,7 +121,9 @@ var annotationsui = {
             player.setA(row.start);
             player.setB(row.start + row.duration);
         }
-    }
+    },
+    save: "cache->testvalues.json",
+    url: "cache->testvalues.json",
 };
 //$$("annotationsui").attachEvent("onAfterSelect",function(id){player.seek(id.start);});
 
