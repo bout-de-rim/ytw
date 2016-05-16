@@ -59,19 +59,29 @@ var playerui = {
     ]
 };
 
+function save() {
+    $$("annotationsui").add({
+        start: player.pointa,
+        note: "",
+        duration: player.pointb - player.pointa
+    })
+};
 var annottoolbar = {
     view: "toolbar",
     //    type: "space",
     id: "annottoolbar",
     elements: [{
+        id: "btA",
         view: "button",
-        type: "prev",
+//        type: "prev",
         label: "Set A",
         width: 100,
-        click: "player.setA()"
+        click: "player.setA()",
+//        badge: 1,
             }, {
+        id: "btB",
         view: "button",
-        type: "next",
+//        type: "next",
         label: "Set B",
         width: 100,
         click: "player.setB()"
@@ -79,22 +89,26 @@ var annottoolbar = {
         view: "button",
         label: "Save",
         width: 100,
-        popup: "coming",
-        //        click: "player.play()"
+        //        popup: "coming",
+        click: "save()"
             }]
 };
 var annotationsui = {
     id: "annotationsui",
     view: "datatable",
     select: "row",
+    editable: true,
     columns: [{
         id: "start",
+        editor: "text",
         header: "Start at"
             }, {
         id: "note",
+        editor: "text",
         header: "Description"
             }, {
         id: "duration",
+        editor: "text",
         header: "Duration"
             }],
     data: testvalues,

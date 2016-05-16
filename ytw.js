@@ -10,19 +10,19 @@ function Player() {
         if (this.yt) {
             this.yt.playVideo();
             setInterval(this.checkloop.bind(this), 1000 / 25);
+            this.state = 1;
         }
     };
     this.pause = function () {
         this.yt.pauseVideo();
+        this.state = 0;
     };
     this.playpause = function () {
         if (this.state == 0) {
-            this.state = 1;
             this.play();
             return "pause";
         }
         if (this.state == 1) {
-            this.state = 0;
             this.pause();
             return "play";
         }
@@ -38,6 +38,8 @@ function Player() {
         if (time > this.pointb)
             this.pointb = time;
         this.pointa = time;
+        $$("btA").define("badge",Number(this.pointa).toFixed(1));
+        $$("btA").refresh();
         console.log(this.pointa);
     };
     this.pointb = null;
@@ -47,6 +49,8 @@ function Player() {
         if (time < this.pointa)
             this.pointa = time;
         this.pointb = time;
+        $$("btB").define("badge",Number(this.pointb).toFixed(1));
+        $$("btB").refresh();
         console.log(this.pointb);
     };
     this.setSpeed = function (speed) {
