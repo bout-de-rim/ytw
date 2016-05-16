@@ -24,7 +24,7 @@ var playerui = {
                 id: "btplay",
                 view: "button",
                 label: "Play",
-//                width: 100,
+                //                width: 100,
                 autowidth: true,
                 autoheight: true,
                 click: "$$('btplay').label = player.playpause()"
@@ -33,10 +33,10 @@ var playerui = {
                 view: "checkbox",
                 labelRight: "Loop",
                 labelWidth: 0,
-//                width: 100,
+                //                width: 100,
                 autowidth: true,
                 autoheight: true,
-//                disabled: true,
+                //                disabled: true,
                 click: 'player.loop=$$("loopbox").getValue()'
             }, {
                 id: "speedslider",
@@ -79,7 +79,8 @@ var annottoolbar = {
         view: "button",
         label: "Save",
         width: 100,
-        click: "player.play()"
+        popup: "coming",
+        //        click: "player.play()"
             }]
 };
 var annotationsui = {
@@ -104,7 +105,7 @@ var annotationsui = {
             row = $$("annotationsui").getSelectedItem();
             player.seek(row.start);
             player.setA(row.start);
-            player.setB(row.start+row.duration);
+            player.setB(row.start + row.duration);
         }
     }
 };
@@ -122,7 +123,21 @@ var otherdocui = {
         select: true
     }]
 };
-
+var impexui = {
+    view: "toolbar",
+    elements: [
+        {
+            view: "button",
+            label: "Export",
+            popup: "coming"
+        },
+        {
+            view: "button",
+            label: "Import",
+            popup: "coming"
+        }
+    ]
+};
 webix.ui({
     type: "space",
     //    width: 500,
@@ -134,10 +149,20 @@ webix.ui({
         {
             cols: [{
                 rows: [playerui, annotationblockui]
-            }, otherdocui]
+            }, {
+                rows: [impexui, otherdocui]
+            }]
         }
     ]
 });
+webix.ui({
+    view: "popup",
+    id: "coming",
+    autofit: true,
+    body: {
+        template: "Coming soon!"
+    }
+}).hide();
 
 // Link the YT iframe to Webix by linking the webix's 'view-id' to a real DOM id.
 $("div[view_id='video-placeholder'] > div")[0].id = 'video-placeholder';

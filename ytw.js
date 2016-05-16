@@ -61,7 +61,7 @@ function Player() {
         this.yt.setPlaybackRate(this.speed);
         return this.speed;
     };
-    this.loop = true;
+    this.loop = false;
     this.checkloop = function () {
         var now = this.yt.getCurrentTime();
         if (this.loop && (now >= this.pointb || now < this.pointa))
