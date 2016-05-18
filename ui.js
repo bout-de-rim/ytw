@@ -4,10 +4,12 @@ var playerui = {
         {
             template: "Video",
             id: "video-placeholder",
-            height: 500
+//            height: 500
         }, {
             view: "toolbar",
             id: "playercontrolbar",
+            minHeight: 40,
+            maxHeight: 40,
             elements: [{
                 id: "btplay",
                 view: "button",
@@ -152,7 +154,7 @@ webix.ui({
         },
         {
             cols: [{
-                rows: [playerui, annotationblockui]
+                rows: [playerui, {view: "resizer"}, annotationblockui]
             }, {
                 rows: [impexui, otherdocui]
             }]

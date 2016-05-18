@@ -18,7 +18,7 @@ function onYouTubeIframeAPIReady() {
             playlist: ''
         },
         events: {'onReady': x=>player.setYTAPI(ytplayer)},
-        origin: "http://127.0.0.1:49202"
+//        origin: "http://127.0.0.1"
     });
 
     // Now the YT IFrame API is fully loaded, we can initialize our player object.
