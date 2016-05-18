@@ -1,15 +1,3 @@
-var testvalues = [
-    {
-        start: 10,
-        note: "Enrosque - side - side - ...",
-        duration: 5
-    }, {
-        start: 25,
-        note: "2d seq",
-        duration: 10
-    }
-];
-
 var playerui = {
     width: 800,
     rows: [
